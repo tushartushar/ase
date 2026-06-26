@@ -1,0 +1,26 @@
+{
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "Write|Edit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "python3 .claude/hooks/block_direct_status_writes.py"
+                    }
+                ]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Write|Edit",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "python3 .claude/hooks/run_related_tests.py"
+                    }
+                ]
+            }
+        ]
+    }
+}
